@@ -1,0 +1,421 @@
+ body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #e0f7fa, #fff);
+  margin: 0;
+  padding: 0;
+}
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  animation: fadeIn 1s ease-in;
+  position: relative;
+}
+
+
+.sidebar {
+  width: 220px;
+  background: #0f4c75;
+  color: white;
+  padding: 30px 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+
+.sidebar h2 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  background: #3282b8;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.sidebar button:hover {
+  background: #1b262c;
+  transform: scale(1.03);
+}
+
+
+.hamburger-icon {
+  font-size: 28px;
+  cursor: pointer;
+  margin: 20px;
+  color: #3282b8;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1100;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+  margin-left: 220px;
+  animation: slideUp 0.5s ease-in;
+  width: 100%;
+}
+
+.profile-section {
+  max-width: 700px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.7s ease;
+}
+
+.profile-section h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0f4c75;
+}
+
+.admin-photo {
+  display: block;
+  margin: 20px auto;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #3282b8;
+}
+
+
+.profile-form label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.profile-form input {
+  margin-left: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  flex: 1;
+}
+
+.profile-form svg {
+  margin-left: 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.profile-form svg:hover {
+  color: #3282b8;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.profile-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.profile-actions button:first-child {
+  background: #00b894;
+  color: white;
+}
+
+.profile-actions button:first-child:hover {
+  background: #019875;
+}
+
+.profile-actions button:last-child {
+  background: #d63031;
+  color: white;
+}
+
+.profile-actions button:last-child:hover {
+  background: #c0392b;
+}
+
+
+.resumes-section {
+  padding: 20px;
+}
+
+.resume-card {
+  background: #f1f1f1;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-left: 6px solid #3282b8;
+  border-radius: 12px;
+  transition: box-shadow 0.3s;
+}
+
+.resume-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    transform: translateX(-100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 60px 20px 20px;
+  }
+
+  .hamburger-icon {
+    font-size: 26px;
+    margin: 15px;
+  }
+}
+/* 
+.feedback-section {
+  padding: 2rem;
+  background-color: #f9f9fb;
+  border-radius: 16px;
+}
+
+.feedback-card {
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.positive-feedback {
+  background-color: #e0f7e9;
+  border-left: 6px solid #4CAF50;
+}
+
+.neutral-feedback {
+  background-color: #fff8e1;
+  border-left: 6px solid #FFC107;
+}
+
+.negative-feedback {
+  background-color: #ffeaea;
+  border-left: 6px solid #F44336;
+}
+
+.filter-dropdown {
+  margin-bottom: 1rem;
+} 
+
+.feedback-graph {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+} */
+
+
+
+.feedback-section {
+  padding: 2rem;
+  background-color: #fdfdfe;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.filter-toggle {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-toggle button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 30px;
+  background: #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.filter-toggle button.active {
+  background-color: #0077ff;
+  color: white;
+}
+
+.feedback-graph {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.feedback-table-container {
+  overflow-x: auto;
+}
+
+.feedback-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.feedback-table th,
+.feedback-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.feedback-table th {
+  background-color: #f0f0f5;
+}
+
+.feedback-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.positive-row {
+  background-color: #e6f9ee;
+}
+
+.negative-row {
+  background-color: #ffecec;
+}
+
+.neutral-row {
+  background-color: #fffbe7;
+}
+
+
+.statistics-section {
+  padding: 20px;
+}
+
+.stat-cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.dark-mode-toggle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 20px;
+  color: inherit; /* icon color will match the current theme */
+  transition: color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  color: #ffc107; /* Highlight on hover */
+}
+
+input[type="file"] {
+  display: block;
+  margin-top: 10px;
+  color: #000;
+}
+
+
+/* AdminDashboard.css */
+body.dark-mode {
+  background-color: #121212;
+  color: black;
+}
+
+body.dark-mode .profile-section,
+body.dark-mode .statistics-section,
+body.dark-mode .feedback-section,
+body.dark-mode .resume-card,
+body.dark-mode .stat-card,
+body.dark-mode .feedback-table th,
+body.dark-mode .feedback-table td,
+body.dark-mode .filter-toggle button,
+body.dark-mode .sidebar,
+body.dark-mode .sidebar h2,
+body.dark-mode .sidebar button,
+body.dark-mode .main-content,
+body.dark-mode .profile-form label {
+  color: black !important;
+}
+
+body.dark-mode .profile-section,
+body.dark-mode .statistics-section,
+body.dark-mode .feedback-section {
+  background-color: #abe7e6;
+  color: #e0e0e0;
+}
+
+body.dark-mode input,
+body.dark-mode button {
+  background-color: #054563;
+  color: #fff;
+  border: 3px solid #0296aa;
+}
